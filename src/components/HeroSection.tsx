@@ -17,7 +17,7 @@ const HeroSection = () => {
         {/* Tagline that appears after animation */}
         <div className={`transition-all duration-1000 delay-500 ${animationComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-2xl md:text-3xl font-light text-center mt-8 mb-4 text-muted-foreground">
-            Smarter IT . Safer Systems . Seamless Service.
+            Smarter IT . Safer Systems . Seamless Service
           </h2>
           
           {/* Tool suite preview */}
