@@ -10,11 +10,11 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   useEffect(() => {
     const sequence = [
-      { state: 'brain', duration: 4000 },
-      { state: 'security', duration: 4000 },
-      { state: 'automation', duration: 4000 },
-      { state: 'hyphen', duration: 3000 },
-      { state: 'complete', duration: 1500 },
+      { state: 'brain', duration: 2500 },
+      { state: 'security', duration: 2500 },
+      { state: 'automation', duration: 2500 },
+      { state: 'hyphen', duration: 2000 },
+      { state: 'complete', duration: 1000 },
     ];
 
     let currentIndex = 0;
@@ -41,130 +41,130 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   const renderBrainAnimation = () => (
     <g>
-      {/* AI Neural Network Pattern */}
+      {/* AI Neural Network Pattern - High contrast white/cyan for visibility */}
       <g className="animate-brain-pulse" style={{ transformOrigin: '175px 125px' }}>
-        {/* Main neural nodes */}
-        <circle cx="165" cy="110" r="2.5" fill="url(#brainGradient)" opacity="0.9" className="animate-pulse-glow" />
-        <circle cx="185" cy="110" r="2.5" fill="url(#brainGradient)" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
-        <circle cx="155" cy="125" r="2" fill="url(#brainGradient)" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
-        <circle cx="175" cy="125" r="3" fill="url(#brainGradient)" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
-        <circle cx="195" cy="125" r="2" fill="url(#brainGradient)" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
-        <circle cx="165" cy="140" r="2.5" fill="url(#brainGradient)" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
-        <circle cx="185" cy="140" r="2.5" fill="url(#brainGradient)" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
+        {/* Main neural nodes - bright white/cyan for visibility */}
+        <circle cx="165" cy="110" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" />
+        <circle cx="185" cy="110" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
+        <circle cx="155" cy="125" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
+        <circle cx="175" cy="125" r="4" fill="#FFFFFF" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
+        <circle cx="195" cy="125" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
+        <circle cx="165" cy="140" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
+        <circle cx="185" cy="140" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
         
         {/* Neural connections with flowing animation */}
         <path d="M165 110 L175 125 M185 110 L175 125 M155 125 L175 125 M195 125 L175 125 M175 125 L165 140 M175 125 L185 140" 
-              stroke="url(#brainGradient)" 
-              strokeWidth="1.5" 
-              opacity="0.6"
-              strokeDasharray="3,2"
+              stroke="#00FFFF" 
+              strokeWidth="2" 
+              opacity="0.8"
+              strokeDasharray="4,2"
               className="animate-automation-flow" />
               
         {/* Central processing hub */}
-        <circle cx="175" cy="125" r="8" stroke="url(#brainGradient)" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" />
+        <circle cx="175" cy="125" r="12" stroke="#FFFFFF" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
         
         {/* Thought bubbles */}
-        <circle cx="170" cy="115" r="1" fill="url(#accent)" opacity="0.7" className="animate-float" />
-        <circle cx="180" cy="115" r="0.8" fill="url(#accent)" opacity="0.6" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="110" r="0.6" fill="url(#accent)" opacity="0.5" className="animate-float" style={{ animationDelay: '1s' }} />
+        <circle cx="170" cy="115" r="1.5" fill="#FFFFFF" opacity="0.8" className="animate-float" />
+        <circle cx="180" cy="115" r="1.2" fill="#00FFFF" opacity="0.7" className="animate-float" style={{ animationDelay: '0.5s' }} />
+        <circle cx="175" cy="110" r="1" fill="#FFFFFF" opacity="0.6" className="animate-float" style={{ animationDelay: '1s' }} />
       </g>
     </g>
   );
 
   const renderSecurityAnimation = () => (
     <g>
-      {/* Security Shield */}
+      {/* Security Shield - High contrast yellow/white */}
       <g className="animate-security-wave" style={{ transformOrigin: '175px 125px' }}>
         {/* Shield outline */}
         <path d="M175 105 L190 115 L190 135 L175 145 L160 135 L160 115 Z" 
-              fill="url(#securityGradient)" 
-              opacity="0.3"
-              stroke="url(#securityGradient)"
-              strokeWidth="1.5" />
+              fill="#FFD700" 
+              opacity="0.4"
+              stroke="#FFFFFF"
+              strokeWidth="2" />
               
         {/* Lock mechanism */}
         <rect x="170" y="122" width="10" height="8" rx="1"
-              fill="url(#primary)" 
-              opacity="0.8" />
+              fill="#FFFFFF" 
+              opacity="0.9" />
         <path d="M172 122 L172 119 A3 3 0 0 1 178 119 L178 122" 
-              stroke="url(#primary)" 
-              strokeWidth="2" 
+              stroke="#FFD700" 
+              strokeWidth="2.5" 
               fill="none" />
               
         {/* Security scan lines */}
-        <rect x="160" y="115" width="30" height="2" fill="url(#accent)" opacity="0.8" className="animate-scan" />
-        <rect x="160" y="125" width="30" height="1" fill="url(#accent)" opacity="0.6" className="animate-scan" style={{ animationDelay: '0.5s' }} />
-        <rect x="160" y="135" width="30" height="2" fill="url(#accent)" opacity="0.8" className="animate-scan" style={{ animationDelay: '1s' }} />
+        <rect x="160" y="115" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" />
+        <rect x="160" y="125" width="30" height="1.5" fill="#FFFFFF" opacity="0.8" className="animate-scan" style={{ animationDelay: '0.5s' }} />
+        <rect x="160" y="135" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" style={{ animationDelay: '1s' }} />
         
         {/* Protection waves */}
-        <circle cx="175" cy="125" r="20" stroke="url(#securityGradient)" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" />
-        <circle cx="175" cy="125" r="30" stroke="url(#securityGradient)" strokeWidth="0.5" fill="none" opacity="0.3" className="animate-pulse-glow" style={{ animationDelay: '0.7s' }} />
+        <circle cx="175" cy="125" r="20" stroke="#FFD700" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        <circle cx="175" cy="125" r="30" stroke="#FFFFFF" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" style={{ animationDelay: '0.7s' }} />
       </g>
     </g>
   );
 
   const renderAutomationAnimation = () => (
     <g>
-      {/* Automation Gears and Flow */}
+      {/* Automation Gears and Flow - High contrast green/white */}
       <g style={{ transformOrigin: '175px 125px' }}>
         {/* Main gear */}
         <g className="animate-rotate-slow">
-          <circle cx="175" cy="125" r="12" stroke="url(#automationGradient)" strokeWidth="2" fill="none" opacity="0.8" />
-          <circle cx="175" cy="113" r="2" fill="url(#automationGradient)" />
-          <circle cx="187" cy="125" r="2" fill="url(#automationGradient)" />
-          <circle cx="175" cy="137" r="2" fill="url(#automationGradient)" />
-          <circle cx="163" cy="125" r="2" fill="url(#automationGradient)" />
+          <circle cx="175" cy="125" r="12" stroke="#00FF00" strokeWidth="2.5" fill="none" opacity="0.9" />
+          <circle cx="175" cy="113" r="2.5" fill="#FFFFFF" />
+          <circle cx="187" cy="125" r="2.5" fill="#FFFFFF" />
+          <circle cx="175" cy="137" r="2.5" fill="#FFFFFF" />
+          <circle cx="163" cy="125" r="2.5" fill="#FFFFFF" />
         </g>
         
         {/* Secondary gears */}
         <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '6s' }}>
-          <circle cx="160" cy="112" r="6" stroke="url(#accent)" strokeWidth="1.5" fill="none" opacity="0.7" />
-          <circle cx="160" cy="106" r="1" fill="url(#accent)" />
-          <circle cx="166" cy="112" r="1" fill="url(#accent)" />
-          <circle cx="160" cy="118" r="1" fill="url(#accent)" />
-          <circle cx="154" cy="112" r="1" fill="url(#accent)" />
+          <circle cx="160" cy="112" r="6" stroke="#00FFFF" strokeWidth="2" fill="none" opacity="0.8" />
+          <circle cx="160" cy="106" r="1.5" fill="#FFFFFF" />
+          <circle cx="166" cy="112" r="1.5" fill="#FFFFFF" />
+          <circle cx="160" cy="118" r="1.5" fill="#FFFFFF" />
+          <circle cx="154" cy="112" r="1.5" fill="#FFFFFF" />
         </g>
         
         <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '4s' }}>
-          <circle cx="190" cy="138" r="6" stroke="url(#accent)" strokeWidth="1.5" fill="none" opacity="0.7" />
-          <circle cx="190" cy="132" r="1" fill="url(#accent)" />
-          <circle cx="196" cy="138" r="1" fill="url(#accent)" />
-          <circle cx="190" cy="144" r="1" fill="url(#accent)" />
-          <circle cx="184" cy="138" r="1" fill="url(#accent)" />
+          <circle cx="190" cy="138" r="6" stroke="#00FFFF" strokeWidth="2" fill="none" opacity="0.8" />
+          <circle cx="190" cy="132" r="1.5" fill="#FFFFFF" />
+          <circle cx="196" cy="138" r="1.5" fill="#FFFFFF" />
+          <circle cx="190" cy="144" r="1.5" fill="#FFFFFF" />
+          <circle cx="184" cy="138" r="1.5" fill="#FFFFFF" />
         </g>
         
         {/* Data flow streams */}
         <path d="M145 125 L205 125" 
-              stroke="url(#automationGradient)" 
-              strokeWidth="2" 
-              strokeDasharray="6,3"
-              opacity="0.7"
+              stroke="#00FF00" 
+              strokeWidth="3" 
+              strokeDasharray="8,4"
+              opacity="0.8"
               className="animate-automation-flow" />
         <path d="M175 100 L175 150" 
-              stroke="url(#automationGradient)" 
-              strokeWidth="2" 
-              strokeDasharray="6,3"
-              opacity="0.7"
+              stroke="#00FFFF" 
+              strokeWidth="3" 
+              strokeDasharray="8,4"
+              opacity="0.8"
               className="animate-automation-flow" 
               style={{ animationDelay: '0.3s' }} />
               
         {/* Process indicators */}
-        <circle cx="155" cy="125" r="2" fill="url(#accent)" className="animate-float" />
-        <circle cx="195" cy="125" r="2" fill="url(#accent)" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="105" r="2" fill="url(#accent)" className="animate-float" style={{ animationDelay: '1s' }} />
-        <circle cx="175" cy="145" r="2" fill="url(#accent)" className="animate-float" style={{ animationDelay: '1.5s' }} />
+        <circle cx="155" cy="125" r="2.5" fill="#00FF00" className="animate-float" />
+        <circle cx="195" cy="125" r="2.5" fill="#00FF00" className="animate-float" style={{ animationDelay: '0.5s' }} />
+        <circle cx="175" cy="105" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1s' }} />
+        <circle cx="175" cy="145" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1.5s' }} />
       </g>
     </g>
   );
 
   const renderHyphen = () => (
     <g className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''}>
-      {/* Central hyphen - positioned exactly like the original logo */}
-      <rect x="158" y="122" width="34" height="6" rx="3" fill="url(#hyphenGradient)" 
+      {/* Central hyphen - perfectly centered in triangle */}
+      <rect x="160" y="122.5" width="30" height="5" rx="2.5" fill="#00FFFF" 
             className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''} />
-      {/* Glow effect */}
-      <rect x="158" y="122" width="34" height="6" rx="3" fill="url(#hyphenGlow)" 
-            opacity="0.5"
+      {/* Bright glow effect */}
+      <rect x="160" y="122.5" width="30" height="5" rx="2.5" fill="#FFFFFF" 
+            opacity="0.6"
             className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''} />
     </g>
   );
@@ -255,9 +255,9 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
         {(currentAnimation === 'hyphen' || currentAnimation === 'complete') && renderHyphen()}
       </svg>
       
-      {/* Animated text that comes from behind */}
+      {/* Animated text that comes from behind - Fixed positioning */}
       <div className={`absolute top-1/2 left-[320px] transform -translate-y-1/2 transition-all duration-1000 ${showLogo ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[100px]'}`}>
-        <h1 className="text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
           hyphenedge
         </h1>
       </div>

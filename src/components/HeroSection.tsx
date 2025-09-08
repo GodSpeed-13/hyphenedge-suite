@@ -6,12 +6,12 @@ const HeroSection = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden py-20">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 animate-pulse-glow" />
       
       {/* Main logo animation */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-7xl mx-auto px-4">
         <AnimatedTriangle onAnimationComplete={() => setAnimationComplete(true)} />
         
         {/* Tagline that appears after animation */}
