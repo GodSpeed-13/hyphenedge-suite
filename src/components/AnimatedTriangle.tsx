@@ -42,18 +42,18 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
   const renderBrainAnimation = () => (
     <g>
       {/* AI Neural Network Pattern - High contrast white/cyan for visibility */}
-      <g className="animate-brain-pulse" style={{ transformOrigin: '175px 145px' }}>
+      <g className="animate-brain-pulse" style={{ transformOrigin: '175px 155px' }}>
         {/* Main neural nodes - bright white/cyan for visibility */}
         <circle cx="165" cy="110" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" />
         <circle cx="185" cy="110" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
-        <circle cx="155" cy="145" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
-        <circle cx="175" cy="145" r="4" fill="#FFFFFF" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
-        <circle cx="195" cy="145" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
+        <circle cx="155" cy="155" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
+        <circle cx="175" cy="155" r="4" fill="#FFFFFF" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
+        <circle cx="195" cy="155" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
         <circle cx="165" cy="140" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
         <circle cx="185" cy="140" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
         
         {/* Neural connections with flowing animation */}
-        <path d="M165 110 L175 145 M185 110 L175 145 M155 145 L175 145 M195 145 L175 145 M175 145 L165 140 M175 145 L185 140" 
+        <path d="M165 110 L175 155 M185 110 L175 155 M155 155 L175 155 M195 155 L175 155 M175 155 L165 140 M175 155 L185 140" 
               stroke="#00FFFF" 
               strokeWidth="2" 
               opacity="0.8"
@@ -61,7 +61,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               className="animate-automation-flow" />
               
         {/* Central processing hub */}
-        <circle cx="175" cy="145" r="12" stroke="#FFFFFF" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        <circle cx="175" cy="155" r="12" stroke="#FFFFFF" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
         
         {/* Thought bubbles */}
         <circle cx="170" cy="115" r="1.5" fill="#FFFFFF" opacity="0.8" className="animate-float" />
@@ -74,9 +74,9 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
   const renderSecurityAnimation = () => (
     <g>
       {/* Security Shield - High contrast yellow/white */}
-      <g className="animate-security-wave" style={{ transformOrigin: '175px 145px' }}>
+      <g className="animate-security-wave" style={{ transformOrigin: '175px 155px' }}>
         {/* Shield outline */}
-        <path d="M175 105 L190 115 L190 135 L175 145 L160 135 L160 115 Z" 
+        <path d="M175 105 L190 115 L190 135 L175 155 L160 135 L160 115 Z" 
               fill="#FFD700" 
               opacity="0.4"
               stroke="#FFFFFF"
@@ -93,12 +93,12 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               
         {/* Security scan lines */}
         <rect x="160" y="115" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" />
-        <rect x="160" y="145" width="30" height="1.5" fill="#FFFFFF" opacity="0.8" className="animate-scan" style={{ animationDelay: '0.5s' }} />
+        <rect x="160" y="155" width="30" height="1.5" fill="#FFFFFF" opacity="0.8" className="animate-scan" style={{ animationDelay: '0.5s' }} />
         <rect x="160" y="135" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" style={{ animationDelay: '1s' }} />
         
         {/* Protection waves */}
-        <circle cx="175" cy="145" r="20" stroke="#FFD700" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
-        <circle cx="175" cy="145" r="30" stroke="#FFFFFF" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" style={{ animationDelay: '0.7s' }} />
+        <circle cx="175" cy="155" r="20" stroke="#FFD700" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        <circle cx="175" cy="155" r="30" stroke="#FFFFFF" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" style={{ animationDelay: '0.7s' }} />
       </g>
     </g>
   );
@@ -106,14 +106,14 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
   const renderAutomationAnimation = () => (
     <g>
       {/* Automation Gears and Flow - High contrast green/white */}
-      <g style={{ transformOrigin: '175px 145px' }}>
+      <g style={{ transformOrigin: '175px 155px' }}>
         {/* Main gear */}
         <g className="animate-rotate-slow">
-          <circle cx="175" cy="145" r="12" stroke="#00FF00" strokeWidth="2.5" fill="none" opacity="0.9" />
+          <circle cx="175" cy="155" r="12" stroke="#00FF00" strokeWidth="2.5" fill="none" opacity="0.9" />
           <circle cx="175" cy="113" r="2.5" fill="#FFFFFF" />
-          <circle cx="187" cy="145" r="2.5" fill="#FFFFFF" />
+          <circle cx="187" cy="155" r="2.5" fill="#FFFFFF" />
           <circle cx="175" cy="137" r="2.5" fill="#FFFFFF" />
-          <circle cx="163" cy="145" r="2.5" fill="#FFFFFF" />
+          <circle cx="163" cy="155" r="2.5" fill="#FFFFFF" />
         </g>
         
         {/* Secondary gears */}
@@ -134,7 +134,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
         </g>
         
         {/* Data flow streams */}
-        <path d="M145 145 L205 145" 
+        <path d="M155 155 L205 155" 
               stroke="#00FF00" 
               strokeWidth="3" 
               strokeDasharray="8,4"
@@ -149,10 +149,10 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               style={{ animationDelay: '0.3s' }} />
               
         {/* Process indicators */}
-        <circle cx="155" cy="145" r="2.5" fill="#00FF00" className="animate-float" />
-        <circle cx="195" cy="145" r="2.5" fill="#00FF00" className="animate-float" style={{ animationDelay: '0.5s' }} />
+        <circle cx="155" cy="155" r="2.5" fill="#00FF00" className="animate-float" />
+        <circle cx="195" cy="155" r="2.5" fill="#00FF00" className="animate-float" style={{ animationDelay: '0.5s' }} />
         <circle cx="175" cy="105" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1s' }} />
-        <circle cx="175" cy="145" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1.5s' }} />
+        <circle cx="175" cy="155" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1.5s' }} />
       </g>
     </g>
   );
