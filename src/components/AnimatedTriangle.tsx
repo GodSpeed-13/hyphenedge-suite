@@ -81,7 +81,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
 
       {/* Brand text (appears after animation) */}
       <div
-        className={`absolute top-1/2 left-[320px] transform -translate-y-1/2 transition-all duration-1000 ${
+        className={`absolute top-1/2 left-[280px] transform -translate-y-1/2 transition-all duration-1000 ${
           showLogo ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[100px]"
         }`}
       >
