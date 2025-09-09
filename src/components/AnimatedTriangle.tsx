@@ -10,7 +10,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   const [rotate, setRotate] = useState(0); // rotation degree for animation
 
   useEffect(() => {
-    const sequence = [0, 600, 1200, 1800, 2400]; // timings
+    const sequence = [0, 600, 1200, 1800, 2400]; // timings for each stage
     const timers: NodeJS.Timeout[] = [];
 
     sequence.forEach((delay, index) => {
@@ -31,52 +31,50 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
     return () => timers.forEach((t) => clearTimeout(t));
   }, [onAnimationComplete]);
 
+  // Renders icons or hyphen inside triangle
   const renderIcon = () => {
     const commonProps = { transform: `rotate(${rotate} 175 145)`, filter: "url(#glow)" };
 
-    switch (iconStage) {
-      case 0:
-        // AI Brain icon
-        return (
-          <g {...commonProps}>
-            <path
-              d="M175 135
-                 c-5,-5 -15,-5 -15,5
-                 c0,5 5,10 10,10
-                 c5,0 10,-5 10,-10
-                 c0,-5 -2,-7 -5,-5z"
-              fill="#FFD700"
-            />
-            <circle cx="175" cy="140" r="2" fill="#FFAA00" />
-          </g>
-        );
-      case 1:
-        // Security Lock
-        return (
-          <g {...commonProps}>
-            <rect x="170" y="140" width="10" height="10" rx="2" fill="#00CED1" />
-            <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth="1.5" fill="none" />
-          </g>
-        );
-      case 2:
-        // Gear / Automation icon
-        return (
-          <g {...commonProps}>
-            <circle cx="175" cy="145" r="5" stroke="#FF69B4" strokeWidth="2" fill="none" />
-            <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth="2" />
-          </g>
-        );
-      case 3:
-        // Original Hyphen
-        return (
-          <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />
-        );
-      default:
-        return null;
+    if (iconStage === 0) {
+      // AI Brain
+      return (
+        <g {...commonProps}>
+          <path
+            d="M175 135
+               c-5,-5 -15,-5 -15,5
+               c0,5 5,10 10,10
+               c5,0 10,-5 10,-10
+               c0,-5 -2,-7 -5,-5z"
+            fill="#FFD700"
+          />
+          <circle cx="175" cy="140" r="2" fill="#FFAA00" />
+        </g>
+      );
+    } else if (iconStage === 1) {
+      // Security Lock
+      return (
+        <g {...commonProps}>
+          <rect x="170" y="140" width="10" height="10" rx={2} fill="#00CED1" />
+          <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth={1.5} fill="none" />
+        </g>
+      );
+    } else if (iconStage === 2) {
+      // Gear / Automation
+      return (
+        <g {...commonProps}>
+          <circle cx="175" cy="145" r="5" stroke="#FF69B4" strokeWidth={2} fill="none" />
+          <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth={2} />
+        </g>
+      );
+    } else if (iconStage >= 3) {
+      // Original Hyphen (always visible after stage 3)
+      return <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />;
     }
+
+    return null;
   };
 
   return (
@@ -99,7 +97,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         {/* Triangle */}
         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" />
 
-        {/* Animated Icon inside triangle */}
+        {/* Animated icon or hyphen inside triangle */}
         {renderIcon()}
       </svg>
 
