@@ -7,9 +7,10 @@ interface AnimatedTriangleProps {
 const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete }) => {
   const [showLogo, setShowLogo] = useState(false);
   const [iconStage, setIconStage] = useState(0); // Tracks which icon to display
+  const [rotate, setRotate] = useState(0); // rotation degree for animation
 
   useEffect(() => {
-    const sequence = [0, 600, 1200, 1800, 2400]; // timing for each stage
+    const sequence = [0, 600, 1200, 1800, 2400]; // timings
     const timers: NodeJS.Timeout[] = [];
 
     sequence.forEach((delay, index) => {
@@ -23,66 +24,55 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
       timers.push(timer);
     });
 
+    // rotation animation interval
+    const rotateInterval = setInterval(() => setRotate((r) => (r + 15) % 360), 50);
+    timers.push(rotateInterval as unknown as NodeJS.Timeout);
+
     return () => timers.forEach((t) => clearTimeout(t));
   }, [onAnimationComplete]);
 
   const renderIcon = () => {
+    const commonProps = { transform: `rotate(${rotate} 175 145)`, filter: "url(#glow)" };
+
     switch (iconStage) {
       case 0:
-        // AI Brain icon (simplified stylized brain)
+        // AI Brain icon
         return (
-          <path
-            d="M175 140
-               c-5,-5 -10,-5 -12,0
-               c-3,4 0,8 0,8
-               c-4,3 -2,8 3,8
-               c5,0 7,-5 8,-8
-               c2,-4 3,-8 -1,-8z"
-            fill="#ffcc00"
-            filter="url(#glow)"
-          />
+          <g {...commonProps}>
+            <path
+              d="M175 135
+                 c-5,-5 -15,-5 -15,5
+                 c0,5 5,10 10,10
+                 c5,0 10,-5 10,-10
+                 c0,-5 -2,-7 -5,-5z"
+              fill="#FFD700"
+            />
+            <circle cx="175" cy="140" r="2" fill="#FFAA00" />
+          </g>
         );
       case 1:
-        // Security lock icon
+        // Security Lock
         return (
-          <path
-            d="M170 145 h10 v10 h-10 z
-               M172 145 v-5 a3,3 0 0,1 6,0 v5"
-            fill="#00ffcc"
-            filter="url(#glow)"
-          />
+          <g {...commonProps}>
+            <rect x="170" y="140" width="10" height="10" rx="2" fill="#00CED1" />
+            <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth="1.5" fill="none" />
+          </g>
         );
       case 2:
         // Gear / Automation icon
         return (
-          <path
-            d="M175 140
-               m-5,0
-               a5,5 0 1,0 10,0
-               a5,5 0 1,0 -10,0
-               M175 135 v-5
-               M175 145 v5
-               M170 140 h-5
-               M180 140 h5"
-            stroke="#ff00ff"
-            strokeWidth="1.5"
-            fill="none"
-            filter="url(#glow)"
-          />
+          <g {...commonProps}>
+            <circle cx="175" cy="145" r="5" stroke="#FF69B4" strokeWidth="2" fill="none" />
+            <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth="2" />
+            <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth="2" />
+            <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth="2" />
+            <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth="2" />
+          </g>
         );
       case 3:
-        // Original hyphen
+        // Original Hyphen
         return (
-          <rect
-            x="150"
-            y="140"
-            width="50"
-            height="10"
-            fill="#00f0ff"
-            filter="url(#glow)"
-            rx={0}
-            ry={0}
-          />
+          <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />
         );
       default:
         return null;
@@ -90,19 +80,8 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   };
 
   return (
-    <div
-      className={`relative transition-all duration-1000 ${
-        showLogo ? "transform translate-x-[-140px]" : ""
-      }`}
-    >
-      <svg
-        width="400"
-        height="300"
-        viewBox="0 0 350 250"
-        className="drop-shadow-2xl"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
+    <div className={`relative transition-all duration-1000 ${showLogo ? "transform translate-x-[-140px]" : ""}`}>
+      <svg width="400" height="300" viewBox="0 0 350 250" className="drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="triangleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#0047FF" />
@@ -120,7 +99,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         {/* Triangle */}
         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" />
 
-        {/* Icon / hyphen inside triangle */}
+        {/* Animated Icon inside triangle */}
         {renderIcon()}
       </svg>
 
