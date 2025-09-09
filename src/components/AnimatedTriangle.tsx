@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CogIcon, LockClosedIcon, ChipIcon } from "@heroicons/react/solid";
 
 interface AnimatedTriangleProps {
   onAnimationComplete?: () => void;
@@ -36,41 +37,24 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
 
     switch (iconStage) {
       case 0:
-        // AI Brain icon
         return (
           <g {...commonProps}>
-            <path
-              d="M175 135
-                 c-5,-5 -15,-5 -15,5
-                 c0,5 5,10 10,10
-                 c5,0 10,-5 10,-10
-                 c0,-5 -2,-7 -5,-5z"
-              fill="#FFD700"
-            />
-            <circle cx="175" cy="140" r="2" fill="#FFAA00" />
+            <ChipIcon className="w-12 h-12 text-yellow-400" />
           </g>
         );
       case 1:
-        // Security Lock
         return (
           <g {...commonProps}>
-            <rect x="170" y="140" width="10" height="10" rx="2" fill="#00CED1" />
-            <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth="1.5" fill="none" />
+            <LockClosedIcon className="w-12 h-12 text-teal-400" />
           </g>
         );
       case 2:
-        // Gear / Automation icon
         return (
           <g {...commonProps}>
-            <circle cx="175" cy="145" r="5" stroke="#FF69B4" strokeWidth="2" fill="none" />
-            <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth="2" />
-            <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth="2" />
+            <CogIcon className="w-12 h-12 text-pink-400" />
           </g>
         );
       case 3:
-        // Original Hyphen
         return (
           <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />
         );
