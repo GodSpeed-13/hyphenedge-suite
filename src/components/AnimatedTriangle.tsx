@@ -10,11 +10,11 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   useEffect(() => {
     const sequence = [
-      { state: 'brain', duration: 1500 },
-      { state: 'security', duration: 1500 },
-      { state: 'automation', duration: 1500 },
-      { state: 'hyphen', duration: 1000 },
-      { state: 'complete', duration: 800 },
+      { state: 'brain', duration: 2500 },
+      { state: 'security', duration: 2500 },
+      { state: 'automation', duration: 2500 },
+      { state: 'hyphen', duration: 1500 },
+      { state: 'complete', duration: 1000 },
     ];
 
     let currentIndex = 0;
@@ -47,131 +47,167 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   const renderBrainAnimation = () => (
     <g>
-      {/* Enhanced AI Neural Network Pattern */}
-      <g className="animate-brain-pulse" style={{ transformOrigin: '175px 140px' }}>
-        {/* Bright neural nodes */}
-        <circle cx="160" cy="120" r="4" fill="#FF6B35" opacity="1" className="animate-pulse-glow" />
-        <circle cx="190" cy="120" r="4" fill="#F7931E" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
-        <circle cx="150" cy="145" r="3.5" fill="#FF6B35" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
-        <circle cx="175" cy="145" r="5" fill="#FFD23F" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
-        <circle cx="200" cy="145" r="3.5" fill="#FF6B35" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
-        <circle cx="165" cy="165" r="4" fill="#F7931E" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
-        <circle cx="185" cy="165" r="4" fill="#FFD23F" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
-        
-        {/* Enhanced neural connections */}
-        <path d="M160 120 L175 145 M190 120 L175 145 M150 145 L175 145 M200 145 L175 145 M175 145 L165 165 M175 145 L185 165" 
-              stroke="#00D4FF" 
-              strokeWidth="3" 
+      {/* Digital Brain Circuit Pattern - inspired by reference */}
+      <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}>
+        {/* Main brain outline with circuit pattern */}
+        <path d="M150 120 Q150 105 165 105 Q180 105 180 115 Q195 115 195 130 Q195 145 190 155 Q185 165 175 165 Q165 165 160 155 Q150 145 150 130 Z" 
+              stroke="hsl(var(--brain-primary))" 
+              strokeWidth="2.5" 
+              fill="none" 
               opacity="0.9"
-              strokeDasharray="6,3"
+              className="animate-pulse-glow" />
+              
+        {/* Circuit pathways */}
+        <path d="M160 125 L170 125 M175 125 L185 125 M165 135 L180 135 M170 145 L180 145" 
+              stroke="hsl(var(--brain-secondary))" 
+              strokeWidth="2" 
+              opacity="1"
+              strokeDasharray="4,2"
               className="animate-automation-flow" />
               
-        {/* Central processing hub with glow */}
-        <circle cx="175" cy="145" r="15" stroke="#00D4FF" strokeWidth="2" fill="none" opacity="0.8" className="animate-pulse-glow" />
-        <circle cx="175" cy="145" r="8" stroke="#FFD23F" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        {/* Neural nodes */}
+        <circle cx="160" cy="125" r="3" fill="hsl(var(--brain-primary))" className="animate-pulse-glow" />
+        <circle cx="170" cy="125" r="2.5" fill="hsl(var(--brain-secondary))" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
+        <circle cx="175" cy="125" r="2.5" fill="hsl(var(--brain-accent))" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
+        <circle cx="185" cy="125" r="3" fill="hsl(var(--brain-primary))" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
         
-        {/* Animated thought particles */}
-        <circle cx="168" cy="128" r="2" fill="#00D4FF" opacity="0.9" className="animate-float" />
-        <circle cx="182" cy="128" r="1.5" fill="#FF6B35" opacity="0.8" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="125" r="1.2" fill="#FFD23F" opacity="0.7" className="animate-float" style={{ animationDelay: '1s' }} />
+        <circle cx="165" cy="135" r="2.5" fill="hsl(var(--brain-secondary))" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
+        <circle cx="175" cy="135" r="4" fill="hsl(var(--brain-primary))" className="animate-pulse-glow" />
+        <circle cx="180" cy="135" r="2.5" fill="hsl(var(--brain-accent))" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
+        
+        <circle cx="170" cy="145" r="2.5" fill="hsl(var(--brain-secondary))" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
+        <circle cx="175" cy="145" r="3" fill="hsl(var(--brain-primary))" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
+        <circle cx="180" cy="145" r="2.5" fill="hsl(var(--brain-accent))" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
+        
+        {/* Central processing unit */}
+        <circle cx="175" cy="135" r="12" stroke="hsl(var(--brain-primary))" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        
+        {/* Data flow particles */}
+        <circle cx="155" cy="130" r="1.5" fill="hsl(var(--brain-secondary))" className="animate-float" />
+        <circle cx="195" cy="140" r="1.5" fill="hsl(var(--brain-accent))" className="animate-float" style={{ animationDelay: '0.7s' }} />
       </g>
     </g>
   );
 
   const renderSecurityAnimation = () => (
     <g>
-      {/* Enhanced Security Shield */}
-      <g className="animate-security-wave" style={{ transformOrigin: '175px 140px' }}>
-        {/* Main shield with gradient fill */}
-        <path d="M175 110 L195 122 L195 150 L175 170 L155 150 L155 122 Z" 
-              fill="#E74C3C" 
-              opacity="0.8"
-              stroke="#F39C12"
-              strokeWidth="3" />
+      {/* Security Shield - inspired by reference */}
+      <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}>
+        {/* Main shield outline */}
+        <path d="M175 110 L195 125 L195 155 L175 170 L155 155 L155 125 Z" 
+              stroke="hsl(var(--security-primary))" 
+              strokeWidth="3"
+              fill="hsl(var(--security-primary) / 0.1)"
+              className="animate-pulse-glow" />
               
-        {/* Secondary shield layer */}
-        <path d="M175 115 L190 125 L190 147 L175 162 L160 147 L160 125 Z" 
-              fill="#C0392B" 
-              opacity="0.6"
-              stroke="#F1C40F"
-              strokeWidth="2" />
+        {/* Inner shield protection */}
+        <path d="M175 118 L188 130 L188 150 L175 162 L162 150 L162 130 Z" 
+              stroke="hsl(var(--security-secondary))" 
+              strokeWidth="2"
+              fill="hsl(var(--security-secondary) / 0.1)"
+              className="animate-pulse-glow" 
+              style={{ animationDelay: '0.3s' }} />
               
-        {/* Enhanced lock mechanism */}
-        <rect x="168" y="135" width="14" height="12" rx="2"
-              fill="#F1C40F" 
-              opacity="1" />
-        <path d="M170 135 L170 130 A5 5 0 0 1 180 130 L180 135" 
-              stroke="#E74C3C" 
-              strokeWidth="3" 
-              fill="none" />
+        {/* Lock mechanism */}
+        <rect x="170" y="138" width="10" height="8" rx="1"
+              fill="hsl(var(--security-primary))" 
+              className="animate-pulse-glow" />
+        <path d="M172 138 L172 134 A3 3 0 0 1 178 134 L178 138" 
+              stroke="hsl(var(--security-accent))" 
+              strokeWidth="2" 
+              fill="none"
+              className="animate-pulse-glow" />
               
-        {/* Animated security scan beams */}
-        <rect x="155" y="122" width="40" height="3" fill="#00D4FF" opacity="1" className="animate-scan" />
-        <rect x="155" y="170" width="40" height="2" fill="#F39C12" opacity="0.9" className="animate-scan" style={{ animationDelay: '0.4s' }} />
-        <rect x="155" y="140" width="40" height="2.5" fill="#00D4FF" opacity="1" className="animate-scan" style={{ animationDelay: '0.8s' }} />
+        {/* Security scan lines */}
+        <line x1="160" y1="128" x2="190" y2="128" 
+              stroke="hsl(var(--security-accent))" 
+              strokeWidth="2"
+              opacity="0.9"
+              className="animate-scan" />
+        <line x1="160" y1="152" x2="190" y2="152" 
+              stroke="hsl(var(--security-primary))" 
+              strokeWidth="2"
+              opacity="0.7"
+              className="animate-scan" 
+              style={{ animationDelay: '0.5s' }} />
         
-        {/* Pulsing protection barriers */}
-        <circle cx="175" cy="140" r="25" stroke="#E74C3C" strokeWidth="2" fill="none" opacity="0.7" className="animate-pulse-glow" />
-        <circle cx="175" cy="140" r="35" stroke="#F39C12" strokeWidth="1.5" fill="none" opacity="0.5" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
+        {/* Protection barriers */}
+        <circle cx="175" cy="140" r="20" 
+                stroke="hsl(var(--security-primary))" 
+                strokeWidth="1.5" 
+                fill="none" 
+                opacity="0.6" 
+                strokeDasharray="3,3"
+                className="animate-rotate-slow" />
+        <circle cx="175" cy="140" r="28" 
+                stroke="hsl(var(--security-accent))" 
+                strokeWidth="1" 
+                fill="none" 
+                opacity="0.4" 
+                strokeDasharray="5,5"
+                className="animate-rotate-slow" 
+                style={{ animationDirection: 'reverse', animationDelay: '0.3s' }} />
       </g>
     </g>
   );
 
   const renderAutomationAnimation = () => (
     <g>
-      {/* Enhanced Automation Gears and Data Flow */}
+      {/* Automation Gear System - inspired by reference */}
       <g style={{ transformOrigin: '175px 140px' }}>
-        {/* Main central gear with vibrant colors */}
+        {/* Main central gear */}
         <g className="animate-rotate-slow">
-          <circle cx="175" cy="140" r="15" stroke="#9B59B6" strokeWidth="3" fill="none" opacity="1" />
-          <circle cx="175" cy="125" r="3" fill="#E67E22" />
-          <circle cx="190" cy="140" r="3" fill="#2ECC71" />
-          <circle cx="175" cy="155" r="3" fill="#E67E22" />
-          <circle cx="160" cy="140" r="3" fill="#2ECC71" />
+          <circle cx="175" cy="140" r="12" 
+                  stroke="hsl(var(--automation-primary))" 
+                  strokeWidth="3" 
+                  fill="hsl(var(--automation-primary) / 0.1)" 
+                  className="animate-pulse-glow" />
           {/* Gear teeth */}
-          <rect x="173" y="115" width="4" height="8" fill="#9B59B6" />
-          <rect x="185" y="138" width="8" height="4" fill="#9B59B6" />
-          <rect x="173" y="157" width="4" height="8" fill="#9B59B6" />
-          <rect x="152" y="138" width="8" height="4" fill="#9B59B6" />
+          <rect x="173" y="120" width="4" height="6" fill="hsl(var(--automation-primary))" />
+          <rect x="185" y="138" width="6" height="4" fill="hsl(var(--automation-primary))" />
+          <rect x="173" y="154" width="4" height="6" fill="hsl(var(--automation-primary))" />
+          <rect x="159" y="138" width="6" height="4" fill="hsl(var(--automation-primary))" />
+          <rect x="183" y="130" width="4" height="4" fill="hsl(var(--automation-primary))" />
+          <rect x="163" y="130" width="4" height="4" fill="hsl(var(--automation-primary))" />
+          <rect x="183" y="146" width="4" height="4" fill="hsl(var(--automation-primary))" />
+          <rect x="163" y="146" width="4" height="4" fill="hsl(var(--automation-primary))" />
         </g>
         
-        {/* Secondary orbital gears */}
-        <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '4s' }}>
-          <circle cx="155" cy="120" r="8" stroke="#E74C3C" strokeWidth="2.5" fill="none" opacity="0.9" />
-          <circle cx="155" cy="112" r="2" fill="#F39C12" />
-          <circle cx="163" cy="120" r="2" fill="#F39C12" />
-          <circle cx="155" cy="128" r="2" fill="#F39C12" />
-          <circle cx="147" cy="120" r="2" fill="#F39C12" />
+        {/* Data flow connections */}
+        <g className="animate-pulse-glow">
+          <circle cx="155" cy="125" r="3" fill="hsl(var(--automation-secondary))" />
+          <circle cx="195" cy="125" r="3" fill="hsl(var(--automation-secondary))" />
+          <circle cx="155" cy="155" r="3" fill="hsl(var(--automation-secondary))" />
+          <circle cx="195" cy="155" r="3" fill="hsl(var(--automation-secondary))" />
         </g>
         
-        <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '3s' }}>
-          <circle cx="195" cy="160" r="8" stroke="#2ECC71" strokeWidth="2.5" fill="none" opacity="0.9" />
-          <circle cx="195" cy="152" r="2" fill="#27AE60" />
-          <circle cx="203" cy="160" r="2" fill="#27AE60" />
-          <circle cx="195" cy="168" r="2" fill="#27AE60" />
-          <circle cx="187" cy="160" r="2" fill="#27AE60" />
-        </g>
-        
-        {/* Enhanced data flow streams */}
-        <path d="M145 140 L205 140" 
-              stroke="#3498DB" 
-              strokeWidth="4" 
-              strokeDasharray="10,5"
-              opacity="1"
+        {/* Circuit connections */}
+        <path d="M155 125 L163 132 M195 125 L187 132 M155 155 L163 148 M195 155 L187 148" 
+              stroke="hsl(var(--automation-accent))" 
+              strokeWidth="2.5" 
+              strokeDasharray="3,2"
               className="animate-automation-flow" />
-        <path d="M175 110 L175 170" 
-              stroke="#E67E22" 
-              strokeWidth="4" 
-              strokeDasharray="10,5"
-              opacity="1"
+        
+        {/* Data streams */}
+        <path d="M145 140 L158 140 M192 140 L205 140" 
+              stroke="hsl(var(--automation-secondary))" 
+              strokeWidth="3" 
+              strokeDasharray="8,4"
+              opacity="0.9"
+              className="animate-automation-flow" />
+        <path d="M175 120 L175 128 M175 152 L175 160" 
+              stroke="hsl(var(--automation-accent))" 
+              strokeWidth="3" 
+              strokeDasharray="8,4"
+              opacity="0.9"
               className="animate-automation-flow" 
-              style={{ animationDelay: '0.3s' }} />
+              style={{ animationDelay: '0.4s' }} />
               
-        {/* Data processing nodes */}
-        <circle cx="145" cy="140" r="3.5" fill="#3498DB" className="animate-float" />
-        <circle cx="205" cy="140" r="3.5" fill="#3498DB" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="110" r="3.5" fill="#E67E22" className="animate-float" style={{ animationDelay: '1s' }} />
-        <circle cx="175" cy="170" r="3.5" fill="#E67E22" className="animate-float" style={{ animationDelay: '1.5s' }} />
+        {/* Processing indicators */}
+        <circle cx="145" cy="140" r="2.5" fill="hsl(var(--automation-secondary))" className="animate-float" />
+        <circle cx="205" cy="140" r="2.5" fill="hsl(var(--automation-secondary))" className="animate-float" style={{ animationDelay: '0.6s' }} />
+        <circle cx="175" cy="120" r="2.5" fill="hsl(var(--automation-accent))" className="animate-float" style={{ animationDelay: '0.3s' }} />
+        <circle cx="175" cy="160" r="2.5" fill="hsl(var(--automation-accent))" className="animate-float" style={{ animationDelay: '0.9s' }} />
       </g>
     </g>
   );

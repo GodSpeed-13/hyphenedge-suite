@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AnimatedTriangle from './AnimatedTriangle';
+import { ThemeToggle } from './ThemeToggle';
 import { Button } from './ui/button';
 
 const HeroSection = () => {
@@ -7,6 +8,7 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden py-20">
+      <ThemeToggle />
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 animate-pulse-glow" />
       
