@@ -9,29 +9,51 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   const [iconStage, setIconStage] = useState(0); // Tracks which icon to display
   const [rotate, setRotate] = useState(0); // rotation degree for animation
 
+  // Timing for icons inside triangle (ms)
+  const sequence = [0, 600, 1200, 1800];
+
   useEffect(() => {
-    const sequence = [0, 600, 1200, 1800, 2400]; // timings for each stage
-    const timers: NodeJS.Timeout[] = [];
+    // Start triangle/text animation once
+    const timer = setTimeout(() => {
+      setShowLogo(true);
+      onAnimationComplete?.();
+    }, sequence[sequence.length - 1] + 600); // showLogo after first full icon cycle
 
-    sequence.forEach((delay, index) => {
-      const timer = setTimeout(() => {
-        setIconStage(index);
-        if (index === sequence.length - 1) {
-          setShowLogo(true);
-          onAnimationComplete?.();
-        }
-      }, delay);
-      timers.push(timer);
-    });
-
-    // rotation animation interval
-    const rotateInterval = setInterval(() => setRotate((r) => (r + 15) % 360), 50);
-    timers.push(rotateInterval as unknown as NodeJS.Timeout);
-
-    return () => timers.forEach((t) => clearTimeout(t));
+    return () => clearTimeout(timer);
   }, [onAnimationComplete]);
 
-  // Renders icons or hyphen inside triangle
+  // Rotate icons continuously
+  useEffect(() => {
+    const rotateInterval = setInterval(() => setRotate((r) => (r + 15) % 360), 50);
+    return () => clearInterval(rotateInterval);
+  }, []);
+
+  // Loop icons inside triangle
+  useEffect(() => {
+    const loopIcons = () => {
+      const timers: NodeJS.Timeout[] = [];
+
+      sequence.forEach((delay, index) => {
+        const timer = setTimeout(() => {
+          setIconStage(index);
+        }, delay);
+        timers.push(timer);
+      });
+
+      // Restart loop after last icon
+      const loopTimer = setTimeout(() => {
+        loopIcons();
+      }, sequence[sequence.length - 1] + 600); // small pause before next loop
+      timers.push(loopTimer as unknown as NodeJS.Timeout);
+
+      return () => timers.forEach((t) => clearTimeout(t));
+    };
+
+    const cleanup = loopIcons();
+    return () => cleanup?.();
+  }, []);
+
+  // Render icons based on stage
   const renderIcon = () => {
     const commonProps = { transform: `rotate(${rotate} 175 145)`, filter: "url(#glow)" };
 
@@ -47,7 +69,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
                c0,-5 -2,-7 -5,-5z"
             fill="#FFD700"
           />
-          <circle cx="175" cy="140" r="2" fill="#FFAA00" />
+          <circle cx="175" cy="140" r={2} fill="#FFAA00" />
         </g>
       );
     } else if (iconStage === 1) {
@@ -62,7 +84,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
       // Gear / Automation
       return (
         <g {...commonProps}>
-          <circle cx="175" cy="145" r="5" stroke="#FF69B4" strokeWidth={2} fill="none" />
+          <circle cx="175" cy="145" r={5} stroke="#FF69B4" strokeWidth={2} fill="none" />
           <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth={2} />
           <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth={2} />
           <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth={2} />
@@ -70,7 +92,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         </g>
       );
     } else if (iconStage >= 3) {
-      // Original Hyphen (always visible after stage 3)
+      // Hyphen (last stage and loop)
       return <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />;
     }
 
@@ -86,7 +108,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
             <stop offset="100%" stopColor="#00CFFF" />
           </linearGradient>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation={6} result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -97,7 +119,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         {/* Triangle */}
         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" />
 
-        {/* Animated icon or hyphen inside triangle */}
+        {/* Animated Icon inside triangle */}
         {renderIcon()}
       </svg>
 
