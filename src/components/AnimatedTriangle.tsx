@@ -18,7 +18,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   return (
     <div
       className={`relative transition-all duration-1000 ${
-        showLogo ? "transform translate-x-[-200px]" : ""
+        showLogo ? "transform translate-x-[-250px]" : ""
       }`}
     >
       {/* Triangle with glowing hyphen */}
