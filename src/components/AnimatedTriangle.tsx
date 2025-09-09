@@ -6,19 +6,18 @@ interface AnimatedTriangleProps {
 
 const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete }) => {
   const [showLogo, setShowLogo] = useState(false);
-  const [iconStage, setIconStage] = useState(0); // Tracks which icon to display
-  const [rotate, setRotate] = useState(0); // rotation degree for animation
+  const [iconStage, setIconStage] = useState(0);
+  const [rotate, setRotate] = useState(0);
 
-  // Timing for icons inside triangle (ms)
-  const sequence = [0, 1500, 1500, 6000];
+  const sequence = [0, 600, 1200, 1800]; // icon timings
+  const loopDelay = 1000; // delay after each loop in ms
 
+  // Trigger triangle + brand text animation once
   useEffect(() => {
-    // Start triangle/text animation once
     const timer = setTimeout(() => {
       setShowLogo(true);
       onAnimationComplete?.();
-    }, sequence[sequence.length - 1] + 600); // showLogo after first full icon cycle
-
+    }, sequence[sequence.length - 1] + 600);
     return () => clearTimeout(timer);
   }, [onAnimationComplete]);
 
@@ -28,7 +27,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
     return () => clearInterval(rotateInterval);
   }, []);
 
-  // Loop icons inside triangle
+  // Loop icons with fade effect
   useEffect(() => {
     const loopIcons = () => {
       const timers: NodeJS.Timeout[] = [];
@@ -40,10 +39,9 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         timers.push(timer);
       });
 
-      // Restart loop after last icon
       const loopTimer = setTimeout(() => {
         loopIcons();
-      }, sequence[sequence.length - 1] + 600); // small pause before next loop
+      }, sequence[sequence.length - 1] + loopDelay);
       timers.push(loopTimer as unknown as NodeJS.Timeout);
 
       return () => timers.forEach((t) => clearTimeout(t));
@@ -53,51 +51,13 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
     return () => cleanup?.();
   }, []);
 
-  // Render icons based on stage
-  const renderIcon = () => {
-    const commonProps = { transform: `rotate(${rotate} 175 145)`, filter: "url(#glow)" };
-
-    if (iconStage === 0) {
-      // AI Brain
-      return (
-        <g {...commonProps}>
-          <path
-            d="M175 135
-               c-5,-5 -15,-5 -15,5
-               c0,5 5,10 10,10
-               c5,0 10,-5 10,-10
-               c0,-5 -2,-7 -5,-5z"
-            fill="#FFD700"
-          />
-          <circle cx="175" cy="140" r={2} fill="#FFAA00" />
-        </g>
-      );
-    } else if (iconStage === 1) {
-      // Security Lock
-      return (
-        <g {...commonProps}>
-          <rect x="170" y="140" width="10" height="10" rx={2} fill="#00CED1" />
-          <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth={1.5} fill="none" />
-        </g>
-      );
-    } else if (iconStage === 2) {
-      // Gear / Automation
-      return (
-        <g {...commonProps}>
-          <circle cx="175" cy="145" r={5} stroke="#FF69B4" strokeWidth={2} fill="none" />
-          <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth={2} />
-          <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth={2} />
-          <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth={2} />
-          <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth={2} />
-        </g>
-      );
-    } else if (iconStage >= 3) {
-      // Hyphen (last stage and loop)
-      return <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} />;
-    }
-
-    return null;
-  };
+  // Common props for icons
+  const iconStyle = (stage: number) => ({
+    opacity: iconStage === stage ? 1 : 0,
+    transition: "opacity 0.4s ease-in-out",
+    transform: `rotate(${rotate} 175 145)`,
+    filter: "url(#glow)",
+  });
 
   return (
     <div className={`relative transition-all duration-1000 ${showLogo ? "transform translate-x-[-140px]" : ""}`}>
@@ -119,8 +79,32 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         {/* Triangle */}
         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" />
 
-        {/* Animated Icon inside triangle */}
-        {renderIcon()}
+        {/* AI Brain */}
+        <g style={iconStyle(0)}>
+          <path
+            d="M175 135 c-5,-5 -15,-5 -15,5 c0,5 5,10 10,10 c5,0 10,-5 10,-10 c0,-5 -2,-7 -5,-5z"
+            fill="#FFD700"
+          />
+          <circle cx="175" cy="140" r={2} fill="#FFAA00" />
+        </g>
+
+        {/* Security Lock */}
+        <g style={iconStyle(1)}>
+          <rect x="170" y="140" width="10" height="10" rx={2} fill="#00CED1" />
+          <path d="M172 140 v-5 a3,3 0 0,1 6,0 v5" stroke="#00CED1" strokeWidth={1.5} fill="none" />
+        </g>
+
+        {/* Gear / Automation */}
+        <g style={iconStyle(2)}>
+          <circle cx="175" cy="145" r={5} stroke="#FF69B4" strokeWidth={2} fill="none" />
+          <line x1="175" y1="140" x2="175" y2="135" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="175" y1="150" x2="175" y2="155" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="170" y1="145" x2="165" y2="145" stroke="#FF69B4" strokeWidth={2} />
+          <line x1="180" y1="145" x2="185" y2="145" stroke="#FF69B4" strokeWidth={2} />
+        </g>
+
+        {/* Hyphen */}
+        <rect x="150" y="140" width="50" height="10" fill="#00f0ff" filter="url(#glow)" rx={0} ry={0} style={iconStyle(3)} />
       </svg>
 
       {/* Brand text */}
