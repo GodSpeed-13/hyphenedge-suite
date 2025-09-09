@@ -92,13 +92,13 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
   const renderSecurityAnimation = () => (
     <g>
       {/* Security Shield - inspired by reference */}
-      <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}>
+{/*       <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}> */}
         {/* Main shield outline */}
-        <path d="M175 110 L195 125 L195 155 L175 170 L155 155 L155 125 Z" 
+{/*         <path d="M175 110 L195 125 L195 155 L175 170 L155 155 L155 125 Z" 
               stroke="hsl(var(--security-primary))" 
               strokeWidth="3"
               fill="hsl(var(--security-primary) / 0.1)"
-              className="animate-pulse-glow" />
+              className="animate-pulse-glow" /> */}
               
         {/* Inner shield protection */}
 {/*         <path d="M175 118 L188 130 L188 150 L175 162 L162 150 L162 130 Z" 
@@ -109,9 +109,9 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               style={{ animationDelay: '0.3s' }} /> */}
               
         {/* Lock mechanism */}
-        <rect x="170" y="138" width="10" height="8" rx="1"
+{/*         <rect x="170" y="138" width="10" height="8" rx="1"
               fill="hsl(var(--security-primary))" 
-              className="animate-pulse-glow" />
+              className="animate-pulse-glow" /> */}
 {/*         <path d="M172 138 L172 134 A3 3 0 0 1 178 134 L178 138" 
               stroke="hsl(var(--security-accent))" 
               strokeWidth="2" 
@@ -119,7 +119,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               className="animate-pulse-glow" /> */}
               
         {/* Security scan lines */}
-        <line x1="160" y1="128" x2="190" y2="128" 
+{/*         <line x1="160" y1="128" x2="190" y2="128" 
               stroke="hsl(var(--security-accent))" 
               strokeWidth="2"
               opacity="0.9"
@@ -129,10 +129,10 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               strokeWidth="2"
               opacity="0.7"
               className="animate-scan" 
-              style={{ animationDelay: '0.5s' }} />
+              style={{ animationDelay: '0.5s' }} /> */}
         
         {/* Protection barriers */}
-        <circle cx="175" cy="140" r="20" 
+{/*         <circle cx="175" cy="140" r="20" 
                 stroke="hsl(var(--security-primary))" 
                 strokeWidth="1.5" 
                 fill="none" 
@@ -146,7 +146,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
                 opacity="0.4" 
                 strokeDasharray="5,5"
                 className="animate-rotate-slow" 
-                style={{ animationDirection: 'reverse', animationDelay: '0.3s' }} />
+                style={{ animationDirection: 'reverse', animationDelay: '0.3s' }} /> */}
       </g>
     </g>
   );
