@@ -77,7 +77,15 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         </defs>
 
         {/* Triangle */}
-        <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" />
+{/*         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" /> */}
+          <path
+          d="M175 60 
+             Q190 70 250 190 
+             Q175 160 100 190 
+             Q160 70 175 60 Z"
+          fill="url(#triangleGradient)"
+          filter="url(#glow)"
+        />
 
         {/* AI Brain */}
         <g style={iconStyle(0)}>
