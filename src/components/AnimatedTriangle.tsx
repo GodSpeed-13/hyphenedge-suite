@@ -66,7 +66,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           filter="url(#glow)"
         /> */}
           <rect
-          x="145"
+          x="148"
           y="140"
           width="50"
           height="10"
