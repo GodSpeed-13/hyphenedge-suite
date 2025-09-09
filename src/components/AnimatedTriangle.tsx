@@ -122,7 +122,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         }`}
       >
         <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
-          hyphenedge
+          Hyphenedge
         </h1>
       </div>
     </div>
