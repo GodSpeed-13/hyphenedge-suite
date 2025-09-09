@@ -10,7 +10,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   const [rotate, setRotate] = useState(0); // rotation degree for animation
 
   // Timing for icons inside triangle (ms)
-  const sequence = [0, 600, 1200, 1800];
+  const sequence = [0, 1500, 1500, 6000];
 
   useEffect(() => {
     // Start triangle/text animation once
