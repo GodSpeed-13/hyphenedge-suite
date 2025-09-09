@@ -10,11 +10,11 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   useEffect(() => {
     const sequence = [
-      { state: 'brain', duration: 2500 },
-      { state: 'security', duration: 2500 },
-      { state: 'automation', duration: 2500 },
-      { state: 'hyphen', duration: 2000 },
-      { state: 'complete', duration: 1000 },
+      { state: 'brain', duration: 1500 },
+      { state: 'security', duration: 1500 },
+      { state: 'automation', duration: 1500 },
+      { state: 'hyphen', duration: 1000 },
+      { state: 'complete', duration: 800 },
     ];
 
     let currentIndex = 0;
@@ -29,6 +29,12 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
           if (currentIndex === sequence.length) {
             setShowLogo(true);
             onAnimationComplete?.();
+            // Loop the animation
+            setTimeout(() => {
+              currentIndex = 0;
+              setShowLogo(false);
+              runAnimation();
+            }, 2000);
           } else {
             runAnimation();
           }
@@ -41,130 +47,143 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
 
   const renderBrainAnimation = () => (
     <g>
-      {/* AI Neural Network Pattern - High contrast white/cyan for visibility */}
-      <g className="animate-brain-pulse" style={{ transformOrigin: '175px 155px' }}>
-        {/* Main neural nodes - bright white/cyan for visibility */}
-        <circle cx="165" cy="110" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" />
-        <circle cx="185" cy="110" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
-        <circle cx="155" cy="155" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
-        <circle cx="175" cy="155" r="4" fill="#FFFFFF" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
-        <circle cx="195" cy="155" r="2.5" fill="#00FFFF" opacity="0.8" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
-        <circle cx="165" cy="140" r="3" fill="#FFFFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
-        <circle cx="185" cy="140" r="3" fill="#00FFFF" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
+      {/* Enhanced AI Neural Network Pattern */}
+      <g className="animate-brain-pulse" style={{ transformOrigin: '175px 140px' }}>
+        {/* Bright neural nodes */}
+        <circle cx="160" cy="120" r="4" fill="#FF6B35" opacity="1" className="animate-pulse-glow" />
+        <circle cx="190" cy="120" r="4" fill="#F7931E" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.2s' }} />
+        <circle cx="150" cy="145" r="3.5" fill="#FF6B35" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.4s' }} />
+        <circle cx="175" cy="145" r="5" fill="#FFD23F" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.1s' }} />
+        <circle cx="200" cy="145" r="3.5" fill="#FF6B35" opacity="0.9" className="animate-pulse-glow" style={{ animationDelay: '0.3s' }} />
+        <circle cx="165" cy="165" r="4" fill="#F7931E" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
+        <circle cx="185" cy="165" r="4" fill="#FFD23F" opacity="1" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
         
-        {/* Neural connections with flowing animation */}
-        <path d="M165 110 L175 155 M185 110 L175 155 M155 155 L175 155 M195 155 L175 155 M175 155 L165 140 M175 155 L185 140" 
-              stroke="#00FFFF" 
-              strokeWidth="2" 
-              opacity="0.8"
-              strokeDasharray="4,2"
+        {/* Enhanced neural connections */}
+        <path d="M160 120 L175 145 M190 120 L175 145 M150 145 L175 145 M200 145 L175 145 M175 145 L165 165 M175 145 L185 165" 
+              stroke="#00D4FF" 
+              strokeWidth="3" 
+              opacity="0.9"
+              strokeDasharray="6,3"
               className="animate-automation-flow" />
               
-        {/* Central processing hub */}
-        <circle cx="175" cy="155" r="12" stroke="#FFFFFF" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
+        {/* Central processing hub with glow */}
+        <circle cx="175" cy="145" r="15" stroke="#00D4FF" strokeWidth="2" fill="none" opacity="0.8" className="animate-pulse-glow" />
+        <circle cx="175" cy="145" r="8" stroke="#FFD23F" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
         
-        {/* Thought bubbles */}
-        <circle cx="170" cy="115" r="1.5" fill="#FFFFFF" opacity="0.8" className="animate-float" />
-        <circle cx="180" cy="115" r="1.2" fill="#00FFFF" opacity="0.7" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="110" r="1" fill="#FFFFFF" opacity="0.6" className="animate-float" style={{ animationDelay: '1s' }} />
+        {/* Animated thought particles */}
+        <circle cx="168" cy="128" r="2" fill="#00D4FF" opacity="0.9" className="animate-float" />
+        <circle cx="182" cy="128" r="1.5" fill="#FF6B35" opacity="0.8" className="animate-float" style={{ animationDelay: '0.5s' }} />
+        <circle cx="175" cy="125" r="1.2" fill="#FFD23F" opacity="0.7" className="animate-float" style={{ animationDelay: '1s' }} />
       </g>
     </g>
   );
 
   const renderSecurityAnimation = () => (
     <g>
-      {/* Security Shield - High contrast yellow/white */}
-      <g className="animate-security-wave" style={{ transformOrigin: '175px 155px' }}>
-        {/* Shield outline */}
-        <path d="M175 105 L190 115 L190 135 L175 155 L160 135 L160 115 Z" 
-              fill="#FFD700" 
-              opacity="0.4"
-              stroke="#FFFFFF"
+      {/* Enhanced Security Shield */}
+      <g className="animate-security-wave" style={{ transformOrigin: '175px 140px' }}>
+        {/* Main shield with gradient fill */}
+        <path d="M175 110 L195 122 L195 150 L175 170 L155 150 L155 122 Z" 
+              fill="#E74C3C" 
+              opacity="0.8"
+              stroke="#F39C12"
+              strokeWidth="3" />
+              
+        {/* Secondary shield layer */}
+        <path d="M175 115 L190 125 L190 147 L175 162 L160 147 L160 125 Z" 
+              fill="#C0392B" 
+              opacity="0.6"
+              stroke="#F1C40F"
               strokeWidth="2" />
               
-        {/* Lock mechanism */}
-        <rect x="170" y="122" width="10" height="8" rx="1"
-              fill="#FFFFFF" 
-              opacity="0.9" />
-        <path d="M172 122 L172 119 A3 3 0 0 1 178 119 L178 122" 
-              stroke="#FFD700" 
-              strokeWidth="2.5" 
+        {/* Enhanced lock mechanism */}
+        <rect x="168" y="135" width="14" height="12" rx="2"
+              fill="#F1C40F" 
+              opacity="1" />
+        <path d="M170 135 L170 130 A5 5 0 0 1 180 130 L180 135" 
+              stroke="#E74C3C" 
+              strokeWidth="3" 
               fill="none" />
               
-        {/* Security scan lines */}
-        <rect x="160" y="115" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" />
-        <rect x="160" y="155" width="30" height="1.5" fill="#FFFFFF" opacity="0.8" className="animate-scan" style={{ animationDelay: '0.5s' }} />
-        <rect x="160" y="135" width="30" height="2" fill="#00FFFF" opacity="0.9" className="animate-scan" style={{ animationDelay: '1s' }} />
+        {/* Animated security scan beams */}
+        <rect x="155" y="122" width="40" height="3" fill="#00D4FF" opacity="1" className="animate-scan" />
+        <rect x="155" y="170" width="40" height="2" fill="#F39C12" opacity="0.9" className="animate-scan" style={{ animationDelay: '0.4s' }} />
+        <rect x="155" y="140" width="40" height="2.5" fill="#00D4FF" opacity="1" className="animate-scan" style={{ animationDelay: '0.8s' }} />
         
-        {/* Protection waves */}
-        <circle cx="175" cy="155" r="20" stroke="#FFD700" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-pulse-glow" />
-        <circle cx="175" cy="155" r="30" stroke="#FFFFFF" strokeWidth="1" fill="none" opacity="0.4" className="animate-pulse-glow" style={{ animationDelay: '0.7s' }} />
+        {/* Pulsing protection barriers */}
+        <circle cx="175" cy="140" r="25" stroke="#E74C3C" strokeWidth="2" fill="none" opacity="0.7" className="animate-pulse-glow" />
+        <circle cx="175" cy="140" r="35" stroke="#F39C12" strokeWidth="1.5" fill="none" opacity="0.5" className="animate-pulse-glow" style={{ animationDelay: '0.6s' }} />
       </g>
     </g>
   );
 
   const renderAutomationAnimation = () => (
     <g>
-      {/* Automation Gears and Flow - High contrast green/white */}
-      <g style={{ transformOrigin: '175px 155px' }}>
-        {/* Main gear */}
+      {/* Enhanced Automation Gears and Data Flow */}
+      <g style={{ transformOrigin: '175px 140px' }}>
+        {/* Main central gear with vibrant colors */}
         <g className="animate-rotate-slow">
-          <circle cx="175" cy="155" r="12" stroke="#00FF00" strokeWidth="2.5" fill="none" opacity="0.9" />
-          <circle cx="175" cy="113" r="2.5" fill="#FFFFFF" />
-          <circle cx="187" cy="155" r="2.5" fill="#FFFFFF" />
-          <circle cx="175" cy="137" r="2.5" fill="#FFFFFF" />
-          <circle cx="163" cy="155" r="2.5" fill="#FFFFFF" />
+          <circle cx="175" cy="140" r="15" stroke="#9B59B6" strokeWidth="3" fill="none" opacity="1" />
+          <circle cx="175" cy="125" r="3" fill="#E67E22" />
+          <circle cx="190" cy="140" r="3" fill="#2ECC71" />
+          <circle cx="175" cy="155" r="3" fill="#E67E22" />
+          <circle cx="160" cy="140" r="3" fill="#2ECC71" />
+          {/* Gear teeth */}
+          <rect x="173" y="115" width="4" height="8" fill="#9B59B6" />
+          <rect x="185" y="138" width="8" height="4" fill="#9B59B6" />
+          <rect x="173" y="157" width="4" height="8" fill="#9B59B6" />
+          <rect x="152" y="138" width="8" height="4" fill="#9B59B6" />
         </g>
         
-        {/* Secondary gears */}
-        <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '6s' }}>
-          <circle cx="160" cy="112" r="6" stroke="#00FFFF" strokeWidth="2" fill="none" opacity="0.8" />
-          <circle cx="160" cy="106" r="1.5" fill="#FFFFFF" />
-          <circle cx="166" cy="112" r="1.5" fill="#FFFFFF" />
-          <circle cx="160" cy="118" r="1.5" fill="#FFFFFF" />
-          <circle cx="154" cy="112" r="1.5" fill="#FFFFFF" />
-        </g>
-        
+        {/* Secondary orbital gears */}
         <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '4s' }}>
-          <circle cx="190" cy="138" r="6" stroke="#00FFFF" strokeWidth="2" fill="none" opacity="0.8" />
-          <circle cx="190" cy="132" r="1.5" fill="#FFFFFF" />
-          <circle cx="196" cy="138" r="1.5" fill="#FFFFFF" />
-          <circle cx="190" cy="144" r="1.5" fill="#FFFFFF" />
-          <circle cx="184" cy="138" r="1.5" fill="#FFFFFF" />
+          <circle cx="155" cy="120" r="8" stroke="#E74C3C" strokeWidth="2.5" fill="none" opacity="0.9" />
+          <circle cx="155" cy="112" r="2" fill="#F39C12" />
+          <circle cx="163" cy="120" r="2" fill="#F39C12" />
+          <circle cx="155" cy="128" r="2" fill="#F39C12" />
+          <circle cx="147" cy="120" r="2" fill="#F39C12" />
         </g>
         
-        {/* Data flow streams */}
-        <path d="M155 155 L205 155" 
-              stroke="#00FF00" 
-              strokeWidth="3" 
-              strokeDasharray="8,4"
-              opacity="0.8"
+        <g className="animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '3s' }}>
+          <circle cx="195" cy="160" r="8" stroke="#2ECC71" strokeWidth="2.5" fill="none" opacity="0.9" />
+          <circle cx="195" cy="152" r="2" fill="#27AE60" />
+          <circle cx="203" cy="160" r="2" fill="#27AE60" />
+          <circle cx="195" cy="168" r="2" fill="#27AE60" />
+          <circle cx="187" cy="160" r="2" fill="#27AE60" />
+        </g>
+        
+        {/* Enhanced data flow streams */}
+        <path d="M145 140 L205 140" 
+              stroke="#3498DB" 
+              strokeWidth="4" 
+              strokeDasharray="10,5"
+              opacity="1"
               className="animate-automation-flow" />
-        <path d="M175 100 L175 150" 
-              stroke="#00FFFF" 
-              strokeWidth="3" 
-              strokeDasharray="8,4"
-              opacity="0.8"
+        <path d="M175 110 L175 170" 
+              stroke="#E67E22" 
+              strokeWidth="4" 
+              strokeDasharray="10,5"
+              opacity="1"
               className="animate-automation-flow" 
               style={{ animationDelay: '0.3s' }} />
               
-        {/* Process indicators */}
-        <circle cx="155" cy="155" r="2.5" fill="#00FF00" className="animate-float" />
-        <circle cx="195" cy="155" r="2.5" fill="#00FF00" className="animate-float" style={{ animationDelay: '0.5s' }} />
-        <circle cx="175" cy="105" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1s' }} />
-        <circle cx="175" cy="155" r="2.5" fill="#00FFFF" className="animate-float" style={{ animationDelay: '1.5s' }} />
+        {/* Data processing nodes */}
+        <circle cx="145" cy="140" r="3.5" fill="#3498DB" className="animate-float" />
+        <circle cx="205" cy="140" r="3.5" fill="#3498DB" className="animate-float" style={{ animationDelay: '0.5s' }} />
+        <circle cx="175" cy="110" r="3.5" fill="#E67E22" className="animate-float" style={{ animationDelay: '1s' }} />
+        <circle cx="175" cy="170" r="3.5" fill="#E67E22" className="animate-float" style={{ animationDelay: '1.5s' }} />
       </g>
     </g>
   );
 
   const renderHyphen = () => (
     <g className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''}>
-      {/* Central hyphen - perfectly centered in triangle */}
-      <rect x="160" y="122.5" width="30" height="5" rx="2.5" fill="#00FFFF" 
+      {/* Central hyphen - matching exact logo cyan color */}
+      <rect x="160" y="137.5" width="30" height="5" rx="2.5" fill="#00D4FF" 
             className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''} />
       {/* Bright glow effect */}
-      <rect x="160" y="122.5" width="30" height="5" rx="2.5" fill="#FFFFFF" 
-            opacity="0.6"
+      <rect x="160" y="137.5" width="30" height="5" rx="2.5" fill="#00D4FF" 
+            opacity="0.7"
             className={currentAnimation === 'hyphen' ? 'animate-pulse-glow' : ''} />
     </g>
   );
@@ -178,25 +197,25 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
         className="drop-shadow-2xl"
       >
         <defs>
-          {/* Triangle gradient - matching original logo */}
-          <linearGradient id="triangleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(217 100% 50%)" />
-            <stop offset="30%" stopColor="hsl(207 100% 55%)" />
-            <stop offset="70%" stopColor="hsl(195 100% 60%)" />
-            <stop offset="100%" stopColor="hsl(188 100% 50%)" />
+          {/* Triangle gradient - matching exact logo */}
+          <linearGradient id="triangleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#1E40AF" />
+            <stop offset="30%" stopColor="#2563EB" />
+            <stop offset="70%" stopColor="#0EA5E9" />
+            <stop offset="100%" stopColor="#00D4FF" />
           </linearGradient>
           
-          {/* Hyphen gradient */}
+          {/* Hyphen gradient - bright cyan */}
           <linearGradient id="hyphenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(188 100% 70%)" />
-            <stop offset="50%" stopColor="hsl(200 100% 80%)" />
-            <stop offset="100%" stopColor="hsl(188 100% 70%)" />
+            <stop offset="0%" stopColor="#00D4FF" />
+            <stop offset="50%" stopColor="#00E4FF" />
+            <stop offset="100%" stopColor="#00D4FF" />
           </linearGradient>
           
           <linearGradient id="hyphenGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(188 100% 50% / 0.8)" />
-            <stop offset="50%" stopColor="hsl(200 100% 60% / 0.9)" />
-            <stop offset="100%" stopColor="hsl(188 100% 50% / 0.8)" />
+            <stop offset="0%" stopColor="#00D4FF" />
+            <stop offset="50%" stopColor="#00E4FF" />
+            <stop offset="100%" stopColor="#00D4FF" />
           </linearGradient>
           
           {/* Animation gradients */}
