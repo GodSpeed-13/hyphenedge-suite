@@ -66,16 +66,16 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           filter="url(#glow)"
         /> */}
           <rect
-          x="50%"
-          y="50%"
+          x="80"
+          y="120"
           width="40"
           height="10"
           fill="#00f0ff"
           filter="url(#glow)"
-          rx="0"
-          ry="0"
-          transform="translate(-20, -5)" // half of width & height
+          rx="0"  // 🔹 removes rounded edges
+          ry="0"  // 🔹 removes rounded edges
         />
+
 
       </svg>
 
