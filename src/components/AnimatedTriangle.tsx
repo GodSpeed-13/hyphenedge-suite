@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Logo: React.FC = () => {
+const AnimatedTriangle: React.FC = () => {
   return (
     <motion.div
       className="flex items-center space-x-4"
@@ -68,4 +68,4 @@ const Logo: React.FC = () => {
   );
 };
 
-export default Logo;
+export default AnimatedTriangle;
