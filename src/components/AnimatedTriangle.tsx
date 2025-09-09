@@ -67,7 +67,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         /> */}
           <rect
           x="145"
-          y="140"
+          y="145"
           width="50"
           height="10"
           fill="#00f0ff"
