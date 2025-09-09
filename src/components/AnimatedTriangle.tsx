@@ -34,7 +34,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               currentIndex = 0;
               setShowLogo(false);
               runAnimation();
-            }, 3000);
+            }, 2500);
           } else {
             runAnimation();
           }
