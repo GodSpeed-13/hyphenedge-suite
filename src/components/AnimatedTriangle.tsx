@@ -10,7 +10,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
   const [rotate, setRotate] = useState(0);
 
   const sequence = [0, 1200, 1200, 1200]; // icon timings
-  const loopDelay = 7000; // delay after each loop in ms
+  const loopDelay = 1000; // delay after each loop in ms
 
   // Trigger triangle + brand text animation once
   useEffect(() => {
