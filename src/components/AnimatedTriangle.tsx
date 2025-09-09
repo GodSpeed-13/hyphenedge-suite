@@ -101,22 +101,22 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
               className="animate-pulse-glow" />
               
         {/* Inner shield protection */}
-        <path d="M175 118 L188 130 L188 150 L175 162 L162 150 L162 130 Z" 
+{/*         <path d="M175 118 L188 130 L188 150 L175 162 L162 150 L162 130 Z" 
               stroke="hsl(var(--security-secondary))" 
               strokeWidth="2"
               fill="hsl(var(--security-secondary) / 0.1)"
               className="animate-pulse-glow" 
-              style={{ animationDelay: '0.3s' }} />
+              style={{ animationDelay: '0.3s' }} /> */}
               
         {/* Lock mechanism */}
         <rect x="170" y="138" width="10" height="8" rx="1"
               fill="hsl(var(--security-primary))" 
               className="animate-pulse-glow" />
-        <path d="M172 138 L172 134 A3 3 0 0 1 178 134 L178 138" 
+{/*         <path d="M172 138 L172 134 A3 3 0 0 1 178 134 L178 138" 
               stroke="hsl(var(--security-accent))" 
               strokeWidth="2" 
               fill="none"
-              className="animate-pulse-glow" />
+              className="animate-pulse-glow" /> */}
               
         {/* Security scan lines */}
         <line x1="160" y1="128" x2="190" y2="128" 
