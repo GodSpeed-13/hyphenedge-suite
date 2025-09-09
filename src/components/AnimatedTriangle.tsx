@@ -92,7 +92,7 @@ const AnimatedTriangle = ({ onAnimationComplete }: AnimatedTriangleProps) => {
   const renderSecurityAnimation = () => (
     <g>
       {/* Security Shield - inspired by reference */}
-{/*       <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}> */}
+      <g className="animate-pulse-glow" style={{ transformOrigin: '175px 140px' }}>
         {/* Main shield outline */}
 {/*         <path d="M175 110 L195 125 L195 155 L175 170 L155 155 L155 125 Z" 
               stroke="hsl(var(--security-primary))" 
