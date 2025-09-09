@@ -56,7 +56,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         />
 
         {/* Hyphen inside the triangle */}
-        <rect
+{/*         <rect
           x="145"
           y="132"
           width="60"
@@ -64,7 +64,19 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           rx="7"
           fill="url(#hyphenGradient)"
           filter="url(#glow)"
+        /> */}
+          <rect
+          x="50%"
+          y="50%"
+          width="40"
+          height="10"
+          fill="#00f0ff"
+          filter="url(#glow)"
+          rx="0"
+          ry="0"
+          transform="translate(-20, -5)" // half of width & height
         />
+
       </svg>
 
       {/* Brand text (appears after animation) */}
