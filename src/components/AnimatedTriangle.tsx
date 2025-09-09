@@ -79,11 +79,11 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         {/* Triangle */}
 {/*         <path d="M175 60 L250 190 L100 190 Z" fill="url(#triangleGradient)" filter="url(#glow)" /> */}
           <path
-          d="M175 60 
-             Q190 70 250 190 
-             Q175 160 100 190 
-             Q160 70 175 60 Z"
+          d="M175 60 L250 190 L100 190 Z"
           fill="url(#triangleGradient)"
+          stroke="url(#triangleGradient)"
+          strokeWidth={5}        // thickness of the edge to create smooth corners
+          strokeLinejoin="round" // rounds the corners
           filter="url(#glow)"
         />
 
