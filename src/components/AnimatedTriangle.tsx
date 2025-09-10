@@ -29,33 +29,21 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
 
   // Loop icons with fade effect
   useEffect(() => {
-    const loopIcons = () => {
-      const timers: NodeJS.Timeout[] = [];
+    let currentIndex = 0;
+    
+    const intervalId = setInterval(() => {
+      setIconStage(currentIndex);
+      currentIndex = (currentIndex + 1) % sequence.length;
+    }, (sequence[1] - sequence[0]));
 
-      sequence.forEach((delay, index) => {
-        const timer = setTimeout(() => {
-          setIconStage(index);
-        }, delay);
-        timers.push(timer);
-      });
-
-      const loopTimer = setTimeout(() => {
-        loopIcons();
-      }, sequence[sequence.length - 1] + loopDelay);
-      timers.push(loopTimer as unknown as NodeJS.Timeout);
-
-      return () => timers.forEach((t) => clearTimeout(t));
-    };
-
-    const cleanup = loopIcons();
-    return () => cleanup?.();
+    return () => clearInterval(intervalId);
   }, []);
 
   // Common props for icons
   const iconStyle = (stage: number) => ({
     opacity: iconStage === stage ? 1 : 0,
     transition: "opacity 0.4s ease-in-out",
-    transform: `rotate(${rotate} 175 145)`,
+    transform: `rotate(${rotate}, 175, 145)`,
     filter: "url(#glow)",
   });
 
@@ -97,8 +85,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         </g>
 
         {/* Security Lock */}
-        <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-          fill="#03fcfd" stroke="none">
+        <g style={iconStyle(1)} transform="translate(150, 120) scale(0.02, -0.02)" fill="#03fcfd" stroke="none">
           <path d="M1410 2793 c-19 -9 -48 -22 -65 -29 -16 -7 -84 -35 -150 -63 -66 -27
           -250 -104 -409 -171 -158 -66 -301 -129 -316 -140 -63 -45 -91 -139 -101 -339
           -46 -882 292 -1527 954 -1824 103 -46 195 -59 264 -37 112 36 346 166 449 251
