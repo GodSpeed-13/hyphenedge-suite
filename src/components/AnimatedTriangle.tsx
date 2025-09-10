@@ -426,7 +426,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           </g>
 
         {/* Security Lock */}
-        <g style={iconStyle(1)} transform="translate(150, 120) scale(0.02, -0.02)" fill="#03fcfd" stroke="none">
+        <g style={iconStyle(1)} transform="translate(145, 165) scale(0.02, -0.02)" fill="#03fcfd" stroke="none">
           <path d="M1410 2793 c-19 -9 -48 -22 -65 -29 -16 -7 -84 -35 -150 -63 -66 -27
           -250 -104 -409 -171 -158 -66 -301 -129 -316 -140 -63 -45 -91 -139 -101 -339
           -46 -882 292 -1527 954 -1824 103 -46 195 -59 264 -37 112 36 346 166 449 251
@@ -514,7 +514,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           </g>
 
         {/* Gear / Automation */}
-        <g style={iconStyle(2)} transform="translate(150, 120) scale(0.008, -0.008)" fill="#02fcfd" stroke="none">
+        <g style={iconStyle(2)} transform="translate(145, 165) scale(0.007, -0.007)" fill="#02fcfd" stroke="none">
           <path d="M6150 8723 c-30 -15 -72 -35 -93 -45 -21 -10 -44 -18 -52 -18 -8 0
           -32 -9 -52 -20 -21 -11 -45 -20 -53 -20 -9 0 -20 -4 -25 -9 -6 -4 -32 -17 -60
           -27 -27 -9 -59 -24 -70 -31 -11 -7 -31 -13 -46 -13 -15 0 -32 -6 -38 -14 -7
