@@ -76,8 +76,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
         />
 
         {/* AI Brain */}
-        <g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)"
-          fill="#02fcfd" stroke="none">
+        <g style={iconStyle(0)} transform="translate(150, 120) scale(0.02, -0.02)" fill="#02fcfd" stroke="none">
           <path d="M4425 8788 c-110 -28 -200 -87 -270 -175 -67 -86 -79 -127 -80 -273
           0 -120 1 -127 32 -190 30 -63 131 -180 155 -180 6 0 19 -6 27 -14 9 -7 36 -21
           61 -30 l45 -17 -3 -587 c-2 -323 0 -610 3 -639 5 -45 11 -54 44 -77 26 -18 50
@@ -515,8 +514,7 @@ const AnimatedTriangle: React.FC<AnimatedTriangleProps> = ({ onAnimationComplete
           </g>
 
         {/* Gear / Automation */}
-        <g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)"
-          fill="#02fcfd" stroke="none">
+        <g style={iconStyle(2)} transform="translate(150, 120) scale(0.02, -0.02)" fill="#02fcfd" stroke="none">
           <path d="M6150 8723 c-30 -15 -72 -35 -93 -45 -21 -10 -44 -18 -52 -18 -8 0
           -32 -9 -52 -20 -21 -11 -45 -20 -53 -20 -9 0 -20 -4 -25 -9 -6 -4 -32 -17 -60
           -27 -27 -9 -59 -24 -70 -31 -11 -7 -31 -13 -46 -13 -15 0 -32 -6 -38 -14 -7
